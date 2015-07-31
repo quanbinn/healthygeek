@@ -3,12 +3,13 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <form>
+    Your Height：<input type="text" id="yourHeight" placeholder="Input you height (cm)"><br>
+    Your Weight：<input type="text" id="yourWeight" placeholder="Input you weight (kgs)"><br>
+    <button id="computeYourBMI" type="button">Compute BMI</button>
+</form>
+  
+  <div id="yourBMIInfo"></div> 
 
-  {{> hello}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
