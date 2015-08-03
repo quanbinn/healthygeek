@@ -20,15 +20,15 @@ if (Meteor.isClient) {
     // document.getElementById("yourBMIAssess").textContent = "";  
 
 	if (yourBMI < 18.5) {										 	 // output your BMI description according to Hong Kong's BMI recommendation
-    	document.getElementById("yourBMIAssess").textContent = "您的体重过轻"; 
+    	document.getElementById("yourBMIAssess").textContent = "你的体重过轻"; 
 	}else if (yourBMI >= 18.5 && yourBMI < 23.0) {
-	    document.getElementById("yourBMIAssess").textContent = "您的体重正常"; 
+	    document.getElementById("yourBMIAssess").textContent = "你的体重正常"; 
 	}else if (yourBMI >= 23.0 && yourBMI < 25.0) {
-	    document.getElementById("yourBMIAssess").textContent = "您的体重超重，有健康危险"; 
+	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，有健康危险"; 
 	}else if (yourBMI >= 25.0 && yourBMI < 30.0) {
-		document.getElementById("yourBMIAssess").textContent = "您的体重超重，属于中度肥胖"; 
+		document.getElementById("yourBMIAssess").textContent = "你的体重超重，属于中度肥胖"; 
 	}else{
-		document.getElementById("yourBMIAssess").textContent = "您的体重超重，属于严重肥胖"; 
+		document.getElementById("yourBMIAssess").textContent = "你的体重超重，属于严重肥胖"; 
 	};
 
       // Insert a task into the collection
