@@ -17,7 +17,7 @@ if (Meteor.isClient) {
       // Insert a task into the collection
       HealthygeeksList.insert({
         Height: yourHeight,
-        Weight: yourWeight;
+        Weight: yourWeight,
         BMI: yourBMI
       });
  
@@ -26,7 +26,7 @@ if (Meteor.isClient) {
       event.target.yourWeight.value = "";
     }
   });
-  
+
 }
 
 if (Meteor.isServer) {
