@@ -1,22 +1,32 @@
 HealthygeeksList = new Mongo.Collection('healthygeeks');
 
 if (Meteor.isClient) {
-  //Template.body.events
-  // Step 1: Find the element we want the event on
-  var button = document.getElementById("computeYourBMI");
 
-  // Step 2: Define the event listener function  
-  var onButtonClick = function() {
-    var yourHeight = document.getElementById("yourHeight").value;
-    var yourWeight = document.getElementById("yourWeight").value;
-	var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
-	var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
+  Template.body.events({
+    "submit .new-healthygeek": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+ 
+      // Get value from form element
+      var yourHeight = event.target.yourHeight.value;
+      var yourWeight = event.target.yourWeight.value;
 
-    document.getElementById("yourBMIInfo").textContent = yourBMI;  
-  };
+      var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
+      var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
+
+      // Insert a task into the collection
+      HealthygeeksList.insert({
+        Height: yourHeight,
+        Weight: yourWeight;
+        BMI: yourBMI
+      });
+ 
+      // Clear form
+      event.target.yourHeight.value = "";
+      event.target.yourWeight.value = "";
+    }
+  });
   
-  // Step 3: Attach event listener to element
-  button.addEventListener("click", onButtonClick);
 }
 
 if (Meteor.isServer) {
