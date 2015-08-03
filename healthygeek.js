@@ -1,4 +1,7 @@
+HealthygeeksList = new Mongo.Collection('healthygeeks');
+
 if (Meteor.isClient) {
+  //Template.body.events
   // Step 1: Find the element we want the event on
   var button = document.getElementById("computeYourBMI");
 
@@ -8,18 +11,6 @@ if (Meteor.isClient) {
     var yourWeight = document.getElementById("yourWeight").value;
 	var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
 	var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
-
-	if (yourBMI < 18.5) {										 	 // output your BMI description according to Hong Kong's BMI recommendation
-    	alert("You are underweight");
-	}else if (yourBMI >= 18.5 && yourBMI < 23.0) {
-	    alert("You are in normal Range");
-	}else if (yourBMI >= 23.0 && yourBMI < 25.0) {
-	    alert("You are overweight - at risk");
-	}else if (yourBMI >= 25.0 && yourBMI < 30.0) {
-		alert("You are overweight - moderately obese");
-	}else{
-		alert("You are overweight - severely obese");
-	};
 
     document.getElementById("yourBMIInfo").textContent = yourBMI;  
   };
