@@ -3,7 +3,7 @@ HealthygeeksList = new Mongo.Collection('healthygeeks');
 if (Meteor.isClient) {
 
   Template.body.events({
-    "submit .new-healthygeek": function (event) {
+    "submit form": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
  
@@ -13,6 +13,8 @@ if (Meteor.isClient) {
 
       var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
       var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
+
+    document.getElementById("yourBMIInfo").textContent = "你的BMI是 " + yourBMI +".";  
 
       // Insert a task into the collection
       HealthygeeksList.insert({
