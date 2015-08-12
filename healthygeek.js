@@ -1,4 +1,5 @@
 HealthygeeksList = new Mongo.Collection('healthygeeks');
+FoodsList = new Mongo.Collection('foods');
 
 if (Meteor.isClient) {
   Template.addBIMForm.events({
@@ -42,6 +43,53 @@ if (Meteor.isClient) {
       // event.target.yourWeight.value = "";
     }
   });
+
+  Template.addFoodForm.events({
+    "submit form": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+ 
+      // Get value from form element
+      var foodName = event.target.foodName.value;
+      var unit = event.target.unit.value;
+      var calory = event.target.calory.value;
+      var totalFat = event.target.totalFat.value;
+      var saturatedFat = event.target.saturatedFat.value;
+      var transFat = event.target.transFat.value;
+      var cholesterol = event.target.cholesterol.value;
+      var sodium = event.target.sodium.value;
+      var category = event.target.category.value;
+      var resource = event.target.resource.value;    
+
+      // Insert a task into the collection
+      FoodsList.insert({
+        foodName: foodName,
+        unit: unit,
+        calory: calory,
+        totalFat: totalFat,
+        saturatedFat: saturatedFat,
+        transFat: transFat,
+        cholesterol: cholesterol,
+        sodium: sodium,
+        category: category,
+        resource: resource
+      });
+ 
+      // Clear form
+      event.target.foodName.value = "";
+      event.target.unit.value = "";
+      event.target.calory.value = "";
+      event.target.totalFat.value = "";
+      event.target.saturatedFat.value = "";
+      event.target.transFat.value = "";
+      event.target.cholesterol.value = "";
+      event.target.sodium.value = "";
+      event.target.category.value = "";
+      event.target.resource.value = "";
+    }
+  });
+
+
 }
 
 if (Meteor.isServer) {
