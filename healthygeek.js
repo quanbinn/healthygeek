@@ -39,8 +39,8 @@ if (Meteor.isClient) {
       });
  
       // Clear form
-      event.target.yourHeight.value = "";
-      event.target.yourWeight.value = "";
+      // event.target.yourHeight.value = "";
+      // event.target.yourWeight.value = "";
     }
   });
 
