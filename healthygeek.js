@@ -69,8 +69,50 @@ if (Meteor.isClient) {
       });
  
       // Clear form
-      // event.target.yourHeight.value = "";
-      // event.target.yourWeight.value = "";
+      event.target.yourHeight.value = "";
+      event.target.yourWeight.value = "";
+    }
+  });
+
+  Template.addFoodForm.events({
+    "submit form": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+ 
+      // Get value from form element
+      var name = event.target.name.value;
+      var brand = event.target.brand.value;      
+      var unit = event.target.unit.value;
+      var calory = event.target.calory.value;
+      var totalFat = event.target.totalFat.value;
+      var saturatedFat = event.target.saturatedFat.value;
+      var cholesterol = event.target.cholesterol.value;
+      var category = event.target.category.value;
+      var resource = event.target.resource.value;    
+
+      // Insert a task into the collection
+      Foods.insert({
+        name: name,
+        brand: brand,
+        unit: unit,
+        calory: calory,
+        totalFat: totalFat,
+        saturatedFat: saturatedFat,
+        cholesterol: cholesterol,
+        category: category,
+        resource: resource
+      });
+ 
+      // Clear form
+      event.target.name.value = "";
+      event.target.brand.value = "";      
+      event.target.unit.value = "";
+      event.target.calory.value = "";
+      event.target.totalFat.value = "";
+      event.target.saturatedFat.value = "";
+      event.target.cholesterol.value = "";
+      event.target.category.value = "";
+      event.target.resource.value = "";
     }
   });
 
