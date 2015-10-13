@@ -99,9 +99,20 @@ if (Meteor.isClient) {
       var saturatedFat = event.target.saturatedFat.value;
       var cholesterol = event.target.cholesterol.value;
       var category = event.target.category.value;
-      var resource = event.target.resource.value;    
+      var resource = event.target.resource.value;  
 
-      // Insert a task into the collection
+      var caloryPercentDV = (calory * 100 / 2000).toFixed(0);             // get calories's %DV
+      var totalFatPercentDV = (totalFat * 100  / 65).toFixed(0);           // get total fat's %DV
+      var saturatedFatPercentDV = (saturatedFat * 100  / 20).toFixed(0);   // get saturated fat's %DV
+      var cholesterolPercentDV = (cholesterol * 100  / 300).toFixed(0);    // get cholesterol's %DV
+
+      // get the quotient of totalFat's %DV / calories's %DV 
+      var totalFatPercentDVQuotient = totalFatPercentDV / caloryPercentDV  
+      // get the quotient of saturatedFat's %DV / calories's %DV
+      var saturatedFatPercentDVQuotient = saturatedFatPercentDV / caloryPercentDV
+      // get the quotient of cholesterol's %DV / calories's %DV  
+      var cholesterolPercentDVQuotient = cholesterolPercentDV / caloryPercentDV
+
       Foods.insert({
         name: name,
         brand: brand,
@@ -111,8 +122,18 @@ if (Meteor.isClient) {
         saturatedFat: saturatedFat,
         cholesterol: cholesterol,
         category: category,
-        resource: resource
+        resource: resource,
+
+        caloryPercentDV: caloryPercentDV,
+        totalFatPercentDV: totalFatPercentDV,
+        saturatedFatPercentDV: saturatedFatPercentDV,
+        cholesterolPercentDV: cholesterolPercentDV,
+
+        totalFatPercentDVQuotient: totalFatPercentDVQuotient,
+        saturatedFatPercentDVQuotient: saturatedFatPercentDVQuotient,
+        cholesterolPercentDVQuotient: cholesterolPercentDVQuotient
       });
+ 
  
       // Clear form
       event.target.name.value = "";
