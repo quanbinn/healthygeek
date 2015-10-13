@@ -107,11 +107,11 @@ if (Meteor.isClient) {
       var cholesterolPercentDV = (cholesterol * 100  / 300).toFixed(0);    // get cholesterol's %DV
 
       // get the quotient of totalFat's %DV / calories's %DV 
-      var totalFatPercentDVQuotient = totalFatPercentDV / caloryPercentDV  
+      var totalFatPercentDVQuotient = (totalFatPercentDV / caloryPercentDV).toFixed(1);  
       // get the quotient of saturatedFat's %DV / calories's %DV
-      var saturatedFatPercentDVQuotient = saturatedFatPercentDV / caloryPercentDV
+      var saturatedFatPercentDVQuotient = (saturatedFatPercentDV / caloryPercentDV).toFixed(1);
       // get the quotient of cholesterol's %DV / calories's %DV  
-      var cholesterolPercentDVQuotient = cholesterolPercentDV / caloryPercentDV
+      var cholesterolPercentDVQuotient = (cholesterolPercentDV / caloryPercentDV).toFixed(1);
 
       Foods.insert({
         name: name,
