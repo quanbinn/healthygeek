@@ -55,6 +55,7 @@ if (Meteor.isClient) {
       var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
       var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
       
+      // render the BMI info filled
       document.getElementById("yourHeightInfo").textContent = "你的身高是 " + yourHeight +".";  
       document.getElementById("yourWeightInfo").textContent = "你的体重是 " + yourWeight +".";  
       document.getElementById("yourBMIInfo").textContent = "你的BMI是 " + yourBMI +".";  
@@ -113,6 +114,27 @@ if (Meteor.isClient) {
       // get the quotient of cholesterol's %DV / calories's %DV  
       var cholesterolPercentDVQuotient = (cholesterolPercentDV / caloryPercentDV).toFixed(1);
 
+      // render the food info filled 
+      document.getElementById("foodName").textContent = "食品名称: " + name;  
+      document.getElementById("foodBrand").textContent = "品牌: " + brand;  
+      document.getElementById("foodUnit").textContent = "单位: " + unit +"克";  
+      document.getElementById("foodCalory").textContent = "能量 " + calory +"卡路里";  
+      document.getElementById("foodTotalFat").textContent = "总脂肪: " + totalFat +"克";  
+      document.getElementById("foodSaturatedFat").textContent = "饱和脂肪: " + saturatedFat +"克";  
+      document.getElementById("foodCholesterol").textContent = "胆固醇: " + cholesterol +"毫克";  
+      document.getElementById("foodCategory").textContent = "分类: " + category;  
+      document.getElementById("foodResource").textContent = "来源: " + resource;  
+
+      document.getElementById("foodCaloryPercentDV").textContent = "占卡路里每天需求总量的：" + caloryPercentDV +"%";  
+      document.getElementById("foodTotalFatPercentDV").textContent = "占总脂肪每天需求总量的：" + totalFatPercentDV +"%";  
+      document.getElementById("foodSaturatedFatPercentDV").textContent = "占饱和脂肪每天需求总量的：" + saturatedFatPercentDV +"%";  
+      document.getElementById("foodCholesterolPercentDV").textContent = "占胆固醇每天需求总量的：" + cholesterolPercentDV +"%";  
+
+      document.getElementById("foodTotalFatPercentDVQuotient").textContent = "总脂肪占比/卡路里占比：" + totalFatPercentDVQuotient;  
+      document.getElementById("foodSaturatedFatPercentDVQuotient").textContent = "饱和脂肪占比/卡路里占比：" + saturatedFatPercentDVQuotient ;  
+      document.getElementById("foodCholesterolPercentDVQuotient").textContent = "胆固醇占比/卡路里占比：" + cholesterolPercentDVQuotient;  
+
+      // Insert a food into the collection
       Foods.insert({
         name: name,
         brand: brand,
