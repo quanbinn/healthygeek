@@ -3,31 +3,37 @@
 </head>
 
 <body>
+    {{> loginButtons}}
     {{> addBIMForm}}
-
     {{> addFoodForm}}
 <!-- <img src="检查汉字/检查汉字.jpg" > -->
 </body>
 
 <template name="addBIMForm">
-  <form>
-    身高：<input type="text" name="yourHeight" placeholder="输入你的身高 (厘米)"><br>
-    体重：<input type="text" name="yourWeight" placeholder="输入你的体重 (公斤)"><br>
-          <input type="submit" value="计算BMI" />
-  </form>
+
+      <form>
+        身高：<input type="text" name="yourHeight" placeholder="输入你的身高 (厘米)"><br>
+        体重：<input type="text" name="yourWeight" placeholder="输入你的体重 (公斤)"><br>
+              <input type="submit" value="计算BMI" />
+      </form>
 
     <div id="yourHeightInfo"></div> 
     <div id="yourWeightInfo"></div> 
     <div id="yourBMIInfo"></div> 
     <div id="yourBMIAssess"></div> 
 
+
+  {{#if currentUser}}
+
   {{#each BIMInfos}}
     <li>身高: {{Height}} 厘米, 体重: {{Weight}} 公斤, BMI: {{BMI}}</li>
   {{/each}}
-
+  
+  {{/if}}
 </template>
 
 <template name="addFoodForm">
+  {{#if currentUser}}
   <form>
     名称：<input type="text" name="name" placeholder="食品名称"><br>
     品牌：<input type="text" name="brand" placeholder="品牌"><br>
@@ -69,6 +75,7 @@
     <li>食品名称: {{name}}, 能量: {{calory}}</li>
   {{/each}}
 
+  {{/if}}
 </template>
 
 
