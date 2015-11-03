@@ -5,7 +5,7 @@ if (Meteor.isClient) {
 
   Template.addBIMForm.helpers({
     'BIMInfos': function () {
-      return Healthygeeks.find();
+      return Healthygeeks.find({}, {sort: {createdAt: -1}});
     }
   });
 
@@ -21,6 +21,10 @@ if (Meteor.isClient) {
       var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
       var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
       
+      var date = new Date();
+      var acturalMonth = date.getMonth() + 1;
+      var createdAt = acturalMonth + " " + date.getDay() + " " + date.getFullYear() + " " + date.getHours() + " " + date.getMinutes() +  " " + date.getSeconds();
+ 
       // render the BMI info filled
       document.getElementById("yourHeightInfo").textContent = "你的身高是 " + yourHeight +".";  
       document.getElementById("yourWeightInfo").textContent = "你的体重是 " + yourWeight +".";  
@@ -43,7 +47,8 @@ if (Meteor.isClient) {
       Healthygeeks.insert({
         Height: yourHeight,
         Weight: yourWeight,
-        BMI: yourBMI
+        BMI: yourBMI,
+        createdAt: createdAt
       });
  
       // Clear form
