@@ -13,6 +13,8 @@ if (Meteor.isClient) {
     "submit form": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
+
+      var currentHealthygeekId = Meteor.userId();
  
       // Get value from form element
       var yourHeight = event.target.yourHeight.value;
@@ -48,7 +50,8 @@ if (Meteor.isClient) {
         Height: yourHeight,
         Weight: yourWeight,
         BMI: yourBMI,
-        createdAt: createdAt
+        createdAt: createdAt,
+        createdBy: currentHealthygeekId
       });
  
       // Clear form
