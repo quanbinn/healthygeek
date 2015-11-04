@@ -5,7 +5,11 @@ if (Meteor.isClient) {
 
   Template.addBIMForm.helpers({
     'BIMInfos': function () {
-      return Healthygeeks.find({}, {sort: {createdAt: -1}});
+      var currentHealthygeekId = Meteor.userId();
+      return Healthygeeks.find(
+        {createdBy: currentHealthygeekId}, 
+        {sort: {createdAt: -1}}
+      );
     }
   });
 
@@ -15,7 +19,8 @@ if (Meteor.isClient) {
       event.preventDefault();
 
       var currentHealthygeekId = Meteor.userId();
- 
+      
+
       // Get value from form element
       var yourHeight = event.target.yourHeight.value;
       var yourWeight = event.target.yourWeight.value;
@@ -45,14 +50,17 @@ if (Meteor.isClient) {
     	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，属于严重肥胖"; 
     	};
 
-      // Insert a task into the collection
-      Healthygeeks.insert({
-        Height: yourHeight,
-        Weight: yourWeight,
-        BMI: yourBMI,
-        createdAt: createdAt,
-        createdBy: currentHealthygeekId
-      });
+      if (currentHealthygeekId) {
+          // Insert a task into the collection
+          Healthygeeks.insert({
+            Height: yourHeight,
+            Weight: yourWeight,
+            BMI: yourBMI,
+            createdAt: createdAt,
+            createdBy: currentHealthygeekId
+          });        
+      }
+
  
       // Clear form
       event.target.yourHeight.value = "";
