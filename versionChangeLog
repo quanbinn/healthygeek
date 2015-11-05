@@ -1,7 +1,0 @@
-Version 0.0.1 (2015-10-23)
-
-. Add BIM form and store bim infos in mongoDB
-. Add food form and store foods infos in mongoDB
-. Get BIM infos from mongoDB and render them in the client
-. Get foods infos from mongoDB and render them in the client
-. Deploy to healthygeek.meteor.com
