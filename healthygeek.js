@@ -65,7 +65,18 @@ if (Meteor.isClient) {
       // Clear form
       event.target.yourHeight.value = "";
       event.target.yourWeight.value = "";
+    },
+
+/*
+    'click .BIMinfoOutput': function () {
+      var BIMInfoId = this._id;
+      console.log(this);    //????   
+      console.log(this.Height);    //????  
+      Session.set('selectedBIMInfo', BIMInfoId);
+      var selectedBIMInfo = Session.get('selectedBIMInfo');
     }
+*/
+
   });
 
   Template.addFoodForm.helpers({
