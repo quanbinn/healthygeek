@@ -8,4 +8,4 @@ meteor-platform
 autopublish
 insecure
 accounts-password
-accounts-ui
+iron:router

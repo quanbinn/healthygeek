@@ -1,0 +1,43 @@
+<template name="foodInfoForm">
+  <form>
+    名称：<input type="text" name="name" placeholder="食品名称"><br>
+    品牌：<input type="text" name="brand" placeholder="品牌"><br>
+    单位：<input type="text" name="unit" placeholder="克"><br>
+    能量：<input type="text" name="calory" placeholder="卡路里"><br>
+    总脂肪：<input type="text" name="totalFat" placeholder="克"><br>
+    饱和脂肪：<input type="text" name="saturatedFat" placeholder="克"><br>
+    胆固醇：<input type="text" name="cholesterol" placeholder="毫克"><br>
+    分类：<select name="category">
+            <option value="天然食品">天然食品</option>
+            <option value="加工食品">加工食品</option>
+            <option value="速食快餐">速食快餐</option>
+            <option value="休闲餐饮">休闲餐饮</option>
+        </select><br>
+    来源：<input type="url" name="resource" placeholder="输入信息来源的URL"><br>
+           <input type="submit" value="提交">
+    </form>
+
+    <div id="foodName"></div> 
+    <div id="foodBrand"></div> 
+    <div id="foodUnit"></div> 
+    <div id="foodCalory"></div> 
+    <div id="foodTotalFat"></div> 
+    <div id="foodSaturatedFat"></div> 
+    <div id="foodCholesterol"></div> 
+    <div id="foodCategory"></div> 
+    <div id="foodResource"></div> 
+
+    <div id="foodCaloryPercentDV"></div> 
+    <div id="foodTotalFatPercentDV"></div> 
+    <div id="foodSaturatedFatPercentDV"></div> 
+    <div id="foodCholesterolPercentDV"></div> 
+
+    <div id="foodTotalFatPercentDVQuotient"></div> 
+    <div id="foodSaturatedFatPercentDVQuotient"></div> 
+    <div id="foodCholesterolPercentDVQuotient"></div> 
+
+  {{#each FoodInfos}}
+    <li>食品名称: {{name}}, 能量: {{calory}}</li>
+  {{/each}}
+
+</template>
