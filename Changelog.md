@@ -1,3 +1,10 @@
+# Version 0.1.0 (2015-11-23)
+
+- Add navigation for registration and login
+- Customize the user accounts' UI
+- Add iron:router
+- Restructure the files in my app
+
 # Version 0.0.2 (2015-11-5)
 
 - Add accounts-password accounts-ui
