@@ -1,0 +1,7 @@
+<template name="navigation">
+  {{#if currentUser}}
+  	<a href="#" class="logout">登出</a>
+  {{else}} 
+  	<a href="{{pathFor route='register'}}">注册</a> | <a href="{{pathFor route='login'}}">登录</a>
+  {{/if}}
+</template>
