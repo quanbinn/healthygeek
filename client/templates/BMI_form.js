@@ -1,8 +1,8 @@
   Template.BMIForm.helpers({
-    'BIMInfos': function () {
-      var currentHealthygeekId = Meteor.userId();
-      return Healthygeeks.find(
-        {createdBy: currentHealthygeekId}, 
+    'personalBMIInfos': function () {
+      var currentUserId = Meteor.userId();
+      return BMIInfos.find(
+        {createdBy: currentUserId}, 
         {sort: {createdAt: -1}}
       );
     }
@@ -13,9 +13,8 @@
       // Prevent default browser form submit
       event.preventDefault();
 
-      var currentHealthygeekId = Meteor.userId();
+      var currentUserId = Meteor.userId();
       
-
       // Get value from form element
       var yourHeight = event.target.yourHeight.value;
       var yourWeight = event.target.yourWeight.value;
@@ -45,14 +44,14 @@
     	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，属于严重肥胖"; 
     	};
 
-      if (currentHealthygeekId) {
+      if (currentUserId) {
           // Insert a task into the collection
-          Healthygeeks.insert({
+          BMIInfos.insert({
             Height: yourHeight,
             Weight: yourWeight,
             BMI: yourBMI,
             createdAt: createdAt,
-            createdBy: currentHealthygeekId
+            createdBy: currentUserId
           });        
       }
 
