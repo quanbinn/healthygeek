@@ -1,4 +1,8 @@
   Template.foodInfoForm.helpers({
+    'isBinxia': function(){
+      return Meteor.user().emails[0].address === "quanbinn@126.com"
+    },
+
     'FoodInfos': function () {
       return Foods.find();
     }
@@ -18,6 +22,7 @@
       var saturatedFat = event.target.saturatedFat.value;
       var cholesterol = event.target.cholesterol.value;
       var category = event.target.category.value;
+      var imageSource = event.target.imageSource.value;
       var resource = event.target.resource.value;  
 
       var caloryPercentDV = (calory * 100 / 2000).toFixed(0);             // get calories's %DV
@@ -41,6 +46,7 @@
       document.getElementById("foodSaturatedFat").textContent = "饱和脂肪: " + saturatedFat +"克";  
       document.getElementById("foodCholesterol").textContent = "胆固醇: " + cholesterol +"毫克";  
       document.getElementById("foodCategory").textContent = "分类: " + category;  
+      document.getElementById("foodImageSource").textContent = "图片路径： "+ imageSource;        
       document.getElementById("foodResource").textContent = "来源: " + resource;  
 
       document.getElementById("foodCaloryPercentDV").textContent = "占卡路里每天需求总量的：" + caloryPercentDV +"%";  
@@ -62,6 +68,7 @@
         saturatedFat: saturatedFat,
         cholesterol: cholesterol,
         category: category,
+        imageSource: imageSource,
         resource: resource,
 
         caloryPercentDV: caloryPercentDV,
@@ -84,6 +91,7 @@
       event.target.saturatedFat.value = "";
       event.target.cholesterol.value = "";
       event.target.category.value = "";
+      event.target.imageSource.value = "";
       event.target.resource.value = "";
     }
   });

@@ -1,4 +1,6 @@
 <template name="foodInfoForm">
+{{#if isBinxia}}
+
   <form>
     名称：<input type="text" name="name" placeholder="食品名称"><br>
     品牌：<input type="text" name="brand" placeholder="品牌"><br>
@@ -13,6 +15,7 @@
             <option value="速食快餐">速食快餐</option>
             <option value="休闲餐饮">休闲餐饮</option>
         </select><br>
+    图片路径：<input type="text" name="imageSource" placeholder="image/food/**.jpg"><br>
     来源：<input type="url" name="resource" placeholder="输入信息来源的URL"><br>
            <input type="submit" value="提交">
     </form>
@@ -24,7 +27,8 @@
     <div id="foodTotalFat"></div> 
     <div id="foodSaturatedFat"></div> 
     <div id="foodCholesterol"></div> 
-    <div id="foodCategory"></div> 
+    <div id="foodCategory"></div>
+    <div id="foodImageSource"></div> 
     <div id="foodResource"></div> 
 
     <div id="foodCaloryPercentDV"></div> 
@@ -39,5 +43,9 @@
   {{#each FoodInfos}}
     <li>食品名称: {{name}}, 能量: {{calory}}, 图片: <p><img src="{{imageSource}}"></p></li>
   {{/each}}
+
+{{/if}}
+
+
 
 </template>
