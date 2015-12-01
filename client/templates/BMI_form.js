@@ -91,7 +91,7 @@
       // output your BMI description according to Hong Kong's BMI recommendation
     	if (yourBMI < 18.5) {									
         	document.getElementById("yourBMIAssess").textContent = "你的体重过轻"; 
-    	}else if (yourBMI >= 18.5 && yourBMI < 23.0) {
+      }else if (yourBMI >= 18.5 && yourBMI < 23.0) {
     	    document.getElementById("yourBMIAssess").textContent = "你的体重正常"; 
     	}else if (yourBMI >= 23.0 && yourBMI < 25.0) {
     	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，有健康危险"; 
