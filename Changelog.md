@@ -1,3 +1,11 @@
+# Version 0.1.1 (2015-12-4)
+
+- Add foods' healthy algorithms and render it in the BMI info page
+- Add all the infos for the initial 8 foods
+- Upload the sample images of foods in the public folder
+- Change healthygeeks to BMIInfos in mongodb
+- Set first user isBinxia
+
 # Version 0.1.0 (2015-11-23)
 
 - Add navigation for registration and login
