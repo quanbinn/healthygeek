@@ -7,65 +7,36 @@
       );
     },
 
-    'highCholestorelPercentFood': function () {
-      return Foods.find(
-          {$and: 
-            [
-              {cholesterolPercentDVQuotient: {$gt: 1.0}}, 
-              {cholesterolPercentDVQuotient: {$lte: 1.5}}
-            ]
-
-          }, 
-          {sort: {cholesterolPercentDVQuotient: -1}}
-          );
+    'isUnderweight': function () {
+      if (yourBMI < 18.5) {
+        return true;
+      };
     },
 
-    'superhighCholestorelPercentFood': function () {
-      return Foods.find(
-          {cholesterolPercentDVQuotient: {$gt: 1.5}}, 
-          {sort: {cholesterolPercentDVQuotient: -1}}
-          );
+    'isInNormalRange': function () {
+      if (yourBMI >= 18.5 && yourBMI < 23.0) {
+        return true;
+      };
     },
 
-    'highSaturatedFatPercentFood': function () {
-      return Foods.find(
-          {$and: 
-            [
-              {totalFatPercentDVQuotient: {$gt: 1.0}}, 
-              {totalFatPercentDVQuotient: {$lte: 1.5}}
-            ]
-
-          }, 
-          {sort: {totalFatPercentDVQuotient: -1}}
-          );
+    'isOverweightAtRisk': function () {
+      if (yourBMI >= 23.0 && yourBMI < 25.0) {
+        return true;
+      };
     },
 
-    'superhighSaturatedFatPercentFood': function () {
-      return Foods.find(
-          {totalFatPercentDVQuotient: {$gt: 1.5}}, 
-          {sort: {totalFatPercentDVQuotient: -1}}
-          );
+    'isOverweightModeratelyObese': function () {
+      if (yourBMI >= 25.0 && yourBMI < 30.0) {
+        return true;
+      };
     },
 
-    'highFatPercentFood': function () {
-      return Foods.find(
-          {$and: 
-            [
-              {totalFatPercentDVQuotient: {$gt: 1.0}}, 
-              {totalFatPercentDVQuotient: {$lte: 1.5}}
-            ]
-
-          }, 
-          {sort: {totalFatPercentDVQuotient: -1}}
-          );
-    },
-
-    'superhighFatPercentFood': function () {
-      return Foods.find(
-          {totalFatPercentDVQuotient: {$gt: 1.5}}, 
-          {sort: {totalFatPercentDVQuotient: -1}}
-          );
-    },
+    //this funciton is not going to be used
+    'isOverweightSeverelyObese': function () {
+      if (yourBMI >= 30.0) {
+        return true;
+      };
+    }
 
   });
 

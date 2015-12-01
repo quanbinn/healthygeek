@@ -1,0 +1,8 @@
+<template name="superhighFatPercentFood">
+    <h2>含超高脂肪的食品</h2>
+    {{#each superhighFatPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}    
+</template>
