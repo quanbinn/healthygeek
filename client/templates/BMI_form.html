@@ -3,6 +3,7 @@
       <form>
         身高：<input type="text" name="yourHeight" placeholder="输入你的身高 (厘米)"><br>
         体重：<input type="text" name="yourWeight" placeholder="输入你的体重 (公斤)"><br>
+        <a href=""></a>
               <input type="submit" value="计算BMI" />
       </form>
 
@@ -14,5 +15,49 @@
   {{#each personalBMIInfos}}
     <li>身高: {{Height}} 厘米, 体重: {{Weight}} 公斤, BMI: {{BMI}}, 计算时间： {{createdAt}}</li>
   {{/each}}
-  
+
+  <h1>你应该关注下面的食物信息：</h1>
+
+  <h2>含超高胆固醇的食品</h2>
+    {{#each superhighCholestorelPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}  
+
+  <h2>含超高脂肪的食品</h2>
+    {{#each superhighFatPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}
+
+  <h2>含超高饱和脂肪的食品</h2>
+    {{#each superhighSaturatedFatPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}
+
+  <h2>含高胆固醇的食品</h2>
+    {{#each highCholestorelPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}
+
+  <h2>含高脂肪的食品</h2>
+    {{#each highFatPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}
+
+  <h2>含高饱和脂肪的食品</h2>
+    {{#each highSaturatedFatPercentFood}}
+      <li>食品名称: {{name}}</li>
+      <p><img src="{{imageSource}}"></p>
+      <p><a href="{{resource}}">数据及信息来源</a></p>
+    {{/each}}  
+    
 </template>

@@ -5,7 +5,68 @@
         {createdBy: currentUserId}, 
         {sort: {createdAt: -1}}
       );
-    }
+    },
+
+    'highCholestorelPercentFood': function () {
+      return Foods.find(
+          {$and: 
+            [
+              {cholesterolPercentDVQuotient: {$gt: 1.0}}, 
+              {cholesterolPercentDVQuotient: {$lte: 1.5}}
+            ]
+
+          }, 
+          {sort: {cholesterolPercentDVQuotient: -1}}
+          );
+    },
+
+    'superhighCholestorelPercentFood': function () {
+      return Foods.find(
+          {cholesterolPercentDVQuotient: {$gt: 1.5}}, 
+          {sort: {cholesterolPercentDVQuotient: -1}}
+          );
+    },
+
+    'highSaturatedFatPercentFood': function () {
+      return Foods.find(
+          {$and: 
+            [
+              {totalFatPercentDVQuotient: {$gt: 1.0}}, 
+              {totalFatPercentDVQuotient: {$lte: 1.5}}
+            ]
+
+          }, 
+          {sort: {totalFatPercentDVQuotient: -1}}
+          );
+    },
+
+    'superhighSaturatedFatPercentFood': function () {
+      return Foods.find(
+          {totalFatPercentDVQuotient: {$gt: 1.5}}, 
+          {sort: {totalFatPercentDVQuotient: -1}}
+          );
+    },
+
+    'highFatPercentFood': function () {
+      return Foods.find(
+          {$and: 
+            [
+              {totalFatPercentDVQuotient: {$gt: 1.0}}, 
+              {totalFatPercentDVQuotient: {$lte: 1.5}}
+            ]
+
+          }, 
+          {sort: {totalFatPercentDVQuotient: -1}}
+          );
+    },
+
+    'superhighFatPercentFood': function () {
+      return Foods.find(
+          {totalFatPercentDVQuotient: {$gt: 1.5}}, 
+          {sort: {totalFatPercentDVQuotient: -1}}
+          );
+    },
+
   });
 
   Template.BMIForm.events({

@@ -5,7 +5,9 @@
 
     'FoodInfos': function () {
       return Foods.find();
-    }
+    },
+
+    
   });
 
   Template.foodInfoForm.events({
