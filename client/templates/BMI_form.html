@@ -1,16 +1,16 @@
 <template name="BMIForm">
 
       <form>
-        身高：<input type="text" name="yourHeight" placeholder="输入你的身高 (厘米)"><br>
-        体重：<input type="text" name="yourWeight" placeholder="输入你的体重 (公斤)"><br>
+        身高：<input type="text" name="myHeight" placeholder="输入你的身高 (厘米)"><br>
+        体重：<input type="text" name="myWeight" placeholder="输入你的体重 (公斤)"><br>
         <a href=""></a>
               <input type="submit" value="计算BMI" />
       </form>
 
-    <div id="yourHeightInfo"></div> 
-    <div id="yourWeightInfo"></div> 
-    <div id="yourBMIInfo"></div> 
-    <h2 id="yourBMIAssess"></h2>
+    <div id="myHeightInfo"></div> 
+    <div id="myWeightInfo"></div> 
+    <div id="myBMIInfo"></div> 
+    <h2 id="myBMIAssess"></h2>
 
 {{#if currentUser}}
   <li>我的身高是: {{personalBMIInfos.Height}} 厘米</li>

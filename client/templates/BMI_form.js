@@ -73,44 +73,44 @@
       var currentUserId = Meteor.userId();
       
       // Get value from form element
-      var yourHeight = event.target.yourHeight.value;
-      var yourWeight = event.target.yourWeight.value;
+      var myHeight = event.target.myHeight.value;
+      var myWeight = event.target.myWeight.value;
 
-      var yourBMIFloatNum = yourWeight / ((yourHeight / 100) * (yourHeight / 100));// Calculate your BMI(kg/m2)
-      var yourBMI = yourBMIFloatNum.toFixed(1);     // Calculate your BMI round(1)
+      var myBMIFloatNum = myWeight / ((myHeight / 100) * (myHeight / 100));// Calculate my BMI(kg/m2)
+      var myBMI = myBMIFloatNum.toFixed(1);     // Calculate my BMI round(1)
       
       // render the BMI info filled
-      document.getElementById("yourHeightInfo").textContent = "你的身高是 " + yourHeight +".";  
-      document.getElementById("yourWeightInfo").textContent = "你的体重是 " + yourWeight +".";  
-      document.getElementById("yourBMIInfo").textContent = "你的BMI是 " + yourBMI +".";  
+      document.getElementById("myHeightInfo").textContent = "我的身高是 " + myHeight +".";  
+      document.getElementById("myWeightInfo").textContent = "我的体重是 " + myWeight +".";  
+      document.getElementById("myBMIInfo").textContent = "我的BMI是 " + myBMI +".";  
 
-      // output your BMI description according to Hong Kong's BMI recommendation
-    	if (yourBMI < 18.5) {									
-        	document.getElementById("yourBMIAssess").textContent = "你的体重过轻"; 
-      }else if (yourBMI >= 18.5 && yourBMI < 23.0) {
-    	    document.getElementById("yourBMIAssess").textContent = "你的体重正常"; 
-    	}else if (yourBMI >= 23.0 && yourBMI < 25.0) {
-    	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，有健康危险"; 
-    	}else if (yourBMI >= 25.0 && yourBMI < 30.0) {
-    	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，属于中度肥胖"; 
+      // output my BMI description according to Hong Kong's BMI recommendation
+    	if (myBMI < 18.5) {									
+        	document.getElementById("myBMIAssess").textContent = "我的体重过轻"; 
+      }else if (myBMI >= 18.5 && myBMI < 23.0) {
+    	    document.getElementById("myBMIAssess").textContent = "我的体重正常"; 
+    	}else if (myBMI >= 23.0 && myBMI < 25.0) {
+    	    document.getElementById("myBMIAssess").textContent = "我的体重超重，有健康危险"; 
+    	}else if (myBMI >= 25.0 && myBMI < 30.0) {
+    	    document.getElementById("myBMIAssess").textContent = "我的体重超重，属于中度肥胖"; 
     	}else{
-    	    document.getElementById("yourBMIAssess").textContent = "你的体重超重，属于严重肥胖"; 
+    	    document.getElementById("myBMIAssess").textContent = "我的体重超重，属于严重肥胖"; 
     	};
 
       if (currentUserId) {
           // Insert a task into the collection
           BMIInfos.insert({
-            Height: yourHeight,
-            Weight: yourWeight,
-            BMI: yourBMI,
+            Height: myHeight,
+            Weight: myWeight,
+            BMI: myBMI,
             createdAt: new Date(),
             createdBy: currentUserId
           });        
       }
  
       // Clear form
-      event.target.yourHeight.value = "";
-      event.target.yourWeight.value = "";
+      event.target.myHeight.value = "";
+      event.target.myWeight.value = "";
     },
 
   });
