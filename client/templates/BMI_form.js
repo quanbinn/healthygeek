@@ -1,39 +1,64 @@
   Template.BMIForm.helpers({
     'personalBMIInfos': function () {
       var currentUserId = Meteor.userId();
-      return BMIInfos.find(
+      return BMIInfos.findOne(
         {createdBy: currentUserId}, 
         {sort: {createdAt: -1}}
       );
     },
 
     'isUnderweight': function () {
-      if (yourBMI < 18.5) {
+      var currentUserId = Meteor.userId();
+      var currentUserBMIInfo =  BMIInfos.findOne(
+        {createdBy: currentUserId}, 
+        {sort: {createdAt: -1}}
+      );
+      if (currentUserBMIInfo.BMI < 18.5) {
         return true;
       };
     },
 
     'isInNormalRange': function () {
-      if (yourBMI >= 18.5 && yourBMI < 23.0) {
+      var currentUserId = Meteor.userId();
+      var currentUserBMIInfo =  BMIInfos.findOne(
+        {createdBy: currentUserId}, 
+        {sort: {createdAt: -1}}
+      );
+      if (currentUserBMIInfo.BMI >= 18.5 && currentUserBMIInfo.BMI < 23.0) {
         return true;
       };
     },
 
     'isOverweightAtRisk': function () {
-      if (yourBMI >= 23.0 && yourBMI < 25.0) {
+      var currentUserId = Meteor.userId();
+      var currentUserBMIInfo =  BMIInfos.findOne(
+        {createdBy: currentUserId}, 
+        {sort: {createdAt: -1}}
+      );
+      if (currentUserBMIInfo.BMI >= 23.0 && currentUserBMIInfo.BMI < 25.0) {
         return true;
       };
     },
 
     'isOverweightModeratelyObese': function () {
-      if (yourBMI >= 25.0 && yourBMI < 30.0) {
+      var currentUserId = Meteor.userId();
+      var currentUserBMIInfo =  BMIInfos.findOne(
+        {createdBy: currentUserId}, 
+        {sort: {createdAt: -1}}
+      );
+      if (currentUserBMIInfo.BMI >= 25.0 && currentUserBMIInfo.BMI < 30.0) {
         return true;
       };
     },
 
     //this funciton is not going to be used
     'isOverweightSeverelyObese': function () {
-      if (yourBMI >= 30.0) {
+      var currentUserId = Meteor.userId();
+      var currentUserBMIInfo =  BMIInfos.findOne(
+        {createdBy: currentUserId}, 
+        {sort: {createdAt: -1}}
+      );
+      if (currentUserBMIInfo.BMI >= 30.0) {
         return true;
       };
     }
@@ -82,21 +107,10 @@
             createdBy: currentUserId
           });        
       }
-
  
       // Clear form
       event.target.yourHeight.value = "";
       event.target.yourWeight.value = "";
     },
-
-/*
-    'click .BIMinfoOutput': function () {
-      var BIMInfoId = this._id;
-      console.log(this);    //????   
-      console.log(this.Height);    //????  
-      Session.set('selectedBIMInfo', BIMInfoId);
-      var selectedBIMInfo = Session.get('selectedBIMInfo');
-    }
-*/
 
   });

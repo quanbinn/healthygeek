@@ -10,17 +10,34 @@
     <div id="yourHeightInfo"></div> 
     <div id="yourWeightInfo"></div> 
     <div id="yourBMIInfo"></div> 
-    <div id="yourBMIAssess"></div> 
+    <h2 id="yourBMIAssess"></h2>
 
-  {{#each personalBMIInfos}}
-    <li>身高: {{Height}} 厘米, 体重: {{Weight}} 公斤, BMI: {{BMI}}, 计算时间： {{createdAt}}</li>
-  {{/each}}
+{{#if currentUser}}
+  <li>我的身高是: {{personalBMIInfos.Height}} 厘米</li>
+  <li>我的体重是: {{personalBMIInfos.Weight}} 公斤</li>
+  <li>我的BMI是: {{personalBMIInfos.BMI}}</li>
+  <li>测量时间是在： {{personalBMIInfos.createdAt}}</li>
+{{/if}}
 
-  {{> highFatPercentFood}}
-  {{> superhighFatPercentFood}}
-  {{> highSaturatedFatPercentFood}}
-  {{> superhighSaturatedFatPercentFood}}
-  {{> highCholestorelPercentFood}}
-  {{> superhighCholestorelPercentFood}}
+{{#if isUnderweight}}
+  <h3>isUnderweight</h3>
+{{/if}}
+
+{{#if isInNormalRange}}
+  <h3>isInNormalRange</h3>
+{{/if}}
+
+{{#if isOverweightAtRisk}}
+  <h3>isOverweightAtRisk</h3>
+{{/if}}
+
+{{#if isOverweightModeratelyObese}}
+  <h3>isOverweightModeratelyObese</h3>
+{{/if}}
+
+{{#if isOverweightSeverelyObese}}
+  <h3>isOverweightSeverelyObese</h3>
+{{/if}}
     
+
 </template>
