@@ -1,43 +1,68 @@
 <template name="BMIForm">
 
-      <form>
-        身高：<input type="text" name="myHeight" placeholder="输入你的身高 (厘米)"><br>
-        体重：<input type="text" name="myWeight" placeholder="输入你的体重 (公斤)"><br>
-        <a href=""></a>
-              <input type="submit" value="计算BMI" />
-      </form>
+  <form>
+    身高：<input type="text" name="myHeight" placeholder="输入你的身高 (厘米)"><br>
+    体重：<input type="text" name="myWeight" placeholder="输入你的体重 (公斤)"><br>
+    <a href=""></a>
+          <input type="submit" value="计算BMI" />
+  </form>
 
-    <div id="myHeightInfo"></div> 
-    <div id="myWeightInfo"></div> 
-    <div id="myBMIInfo"></div> 
-    <h2 id="myBMIAssess"></h2>
+  <div id="myHeightInfo"></div> 
+  <div id="myWeightInfo"></div> 
+  <div id="myBMIInfo"></div> 
+
+  <h2 id="myBMIAssess"></h2>
+
+
+  {{#if currentUser}}
+    <li>我的身高是: {{personalBMIInfos.Height}} 厘米</li>
+    <li>我的体重是: {{personalBMIInfos.Weight}} 公斤</li>
+    <li>我的BMI是: {{personalBMIInfos.BMI}}</li>
+    <li>测量时间是在： {{personalBMIInfos.createdAt}}</li>
+  {{/if}}
 
 {{#if currentUser}}
-  <li>我的身高是: {{personalBMIInfos.Height}} 厘米</li>
-  <li>我的体重是: {{personalBMIInfos.Weight}} 公斤</li>
-  <li>我的BMI是: {{personalBMIInfos.BMI}}</li>
-  <li>测量时间是在： {{personalBMIInfos.createdAt}}</li>
-{{/if}}
-
-{{#if isUnderweight}}
-  <h3>isUnderweight</h3>
-{{/if}}
-
-{{#if isInNormalRange}}
-  <h3>isInNormalRange</h3>
-{{/if}}
-
-{{#if isOverweightAtRisk}}
-  <h3>isOverweightAtRisk</h3>
-{{/if}}
-
-{{#if isOverweightModeratelyObese}}
-  <h3>isOverweightModeratelyObese</h3>
-{{/if}}
-
-{{#if isOverweightSeverelyObese}}
-  <h3>isOverweightSeverelyObese</h3>
-{{/if}}
-    
+  {{#if isUnderweight}}
+      <h2>我的体重过轻</h2>
+      <h3>我应该多吃含高脂肪的食品</h3>{{> highFatPercentFood}}
+      <h3>我应该适当吃一些含超高脂肪的食品</h3>{{> superhighFatPercentFood}}
+      <h3>我应该少吃含高胆固醇的食品</h3>{{> highCholestorelPercentFood}}
+      <h3>我应该少吃含超高胆固醇的食品</h3>{{> superhighCholestorelPercentFood}}
+  {{else}} 
+    {{#if isInNormalRange}}
+        <h2>我的体重正常</h2>
+        <h3>我应该少吃含高胆固醇的食品</h3>{{> highCholestorelPercentFood}}
+        <h3>我应该少吃含超高胆固醇的食品</h3>{{> superhighCholestorelPercentFood}}
+    {{else}}
+      {{#if isOverweightAtRisk}}
+          <h2>我的体重超重，有健康危险</h2>
+          <h3>我应该少吃含高脂肪的食品</h3>{{> highFatPercentFood}}
+          <h3>我应该少吃含超高脂肪的食品</h3>{{> superhighFatPercentFood}}
+          <h3>我应该少吃含饱和脂肪的食品</h3>{{> highSaturatedFatPercentFood}}
+            <h3>我应该少吃含超高饱和脂肪的食品</h3>{{> superhighSaturatedFatPercentFood}}
+            <h3>我应该少吃含高胆固醇的食品</h3>{{> highCholestorelPercentFood}}
+            <h3>我应该少吃含超高胆固醇的食品</h3>{{> superhighCholestorelPercentFood}}
+        {{else}}
+          {{#if isOverweightModeratelyObese}}
+              <h2>我的体重超重，属于中度肥胖</h2>
+              <h3>我应该少吃含高脂肪的食品</h3>{{> highFatPercentFood}}
+              <h3>我应该少吃含超高脂肪的食品</h3>{{> superhighFatPercentFood}}
+              <h3>我应该少吃含饱和脂肪的食品</h3>{{> highSaturatedFatPercentFood}}
+              <h3>我应该少吃含超高饱和脂肪的食品</h3>{{> superhighSaturatedFatPercentFood}}
+              <h3>我应该少吃含高胆固醇的食品</h3>{{> highCholestorelPercentFood}}
+              <h3>我应该少吃含超高胆固醇的食品</h3>{{> superhighCholestorelPercentFood}}
+          {{else}}
+                <h2>我的体重超重，属于严重肥胖</h2>
+                <h3>我应该少吃含高脂肪的食品</h3>{{> highFatPercentFood}}
+                <h3>我应该少吃含超高脂肪的食品</h3>{{> superhighFatPercentFood}}
+                <h3>我应该少吃含饱和脂肪的食品</h3>{{> highSaturatedFatPercentFood}}
+                <h3>我应该少吃含超高饱和脂肪的食品</h3>{{> superhighSaturatedFatPercentFood}}
+                <h3>我应该少吃含高胆固醇的食品</h3>{{> highCholestorelPercentFood}}
+                <h3>我应该少吃含超高胆固醇的食品</h3>{{> superhighCholestorelPercentFood}}
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
 
 </template>
