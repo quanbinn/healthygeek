@@ -2,7 +2,7 @@
     'personalBMIInfos': function () {
       var currentUserId = Meteor.userId();
       return BMIInfos.findOne(
-        {createdBy: currentUserId}, 
+        {}, 
         {sort: {createdAt: -1}}
       );
     },
@@ -69,8 +69,6 @@
     "submit form": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
-
-      var currentUserId = Meteor.userId();
       
       // Get value from form element
       var myHeight = event.target.myHeight.value;
@@ -97,17 +95,10 @@
     	    document.getElementById("myBMIAssess").textContent = "我的体重超重，属于严重肥胖"; 
     	};
 
-      if (currentUserId) {
-          // Insert a task into the collection
-          BMIInfos.insert({
-            Height: myHeight,
-            Weight: myWeight,
-            BMI: myBMI,
-            createdAt: new Date(),
-            createdBy: currentUserId
-          });        
-      }
- 
+      if (Meteor.userId()) {
+          Meteor.call('insertBMIInfosData', myHeight, myWeight, myBMI);   
+      };
+
       // Clear form
       event.target.myHeight.value = "";
       event.target.myWeight.value = "";

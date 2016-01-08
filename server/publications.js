@@ -2,6 +2,8 @@
 // who created their BMI infos and see his or her record.
 Meteor.publish('theBMIInfos', function() {
 	var currentUserId = this.userId;
+	//console.log(typeof(this));
+	//console.log(this.userId);
 	return BMIInfos.find({createdBy: currentUserId});
 });
 
