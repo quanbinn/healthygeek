@@ -1,3 +1,12 @@
+# Version 0.2.1 (2016-1-16)
+
+- Add the insert methods of Foods and call them in the client
+- Remove insecure and add methods for BMIinfos and call it from the client
+- Publish and subscribe the foods' record
+- Remove autopublish and add publish in the server and subscribe in the client
+- Add food recommendations according to the different BMI
+- FindOne the newest BMI info and provide the food suggestions according to the different BMI
+
 # Version 0.1.1 (2015-12-4)
 
 - Add foods' healthy algorithms and render it in the BMI info page
