@@ -1,6 +1,8 @@
   Template.foodInfoForm.helpers({
     'isBinxia': function(){
-      return Meteor.user().emails[0].address === "quanbinn@126.com"
+      var user = Meteor.user();
+      var email = user && user.emails && user.emails[0].address
+      return email === "quanbinn@126.com"
     },
 
     'FoodInfos': function () {

@@ -95,6 +95,10 @@
     	    document.getElementById("myBMIAssess").textContent = "我的体重超重，属于严重肥胖"; 
     	};
 
+      // if there is a logined user, call the insertBMIINfosData function
+      // and insert the data into the BMIInfos collection
+      // if Meteor.userId() == null, the following code will not be excecuted
+
       if (Meteor.userId()) {
           Meteor.call('insertBMIInfosData', myHeight, myWeight, myBMI);   
       };
