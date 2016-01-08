@@ -8,8 +8,6 @@
     'FoodInfos': function () {
       return Foods.find();
     },
-
-    
   });
 
   Template.foodInfoForm.events({
@@ -62,29 +60,11 @@
       document.getElementById("foodSaturatedFatPercentDVQuotient").textContent = "饱和脂肪占比/卡路里占比：" + saturatedFatPercentDVQuotient ;  
       document.getElementById("foodCholesterolPercentDVQuotient").textContent = "胆固醇占比/卡路里占比：" + cholesterolPercentDVQuotient;  
 
-      // Insert a food into the collection
-      Foods.insert({
-        name: name,
-        brand: brand,
-        unit: unit,
-        calory: calory,
-        totalFat: totalFat,
-        saturatedFat: saturatedFat,
-        cholesterol: cholesterol,
-        category: category,
-        imageSource: imageSource,
-        resource: resource,
-
-        caloryPercentDV: caloryPercentDV,
-        totalFatPercentDV: totalFatPercentDV,
-        saturatedFatPercentDV: saturatedFatPercentDV,
-        cholesterolPercentDV: cholesterolPercentDV,
-
-        totalFatPercentDVQuotient: totalFatPercentDVQuotient,
-        saturatedFatPercentDVQuotient: saturatedFatPercentDVQuotient,
-        cholesterolPercentDVQuotient: cholesterolPercentDVQuotient
-      });
- 
+      var user = Meteor.user();
+      var email = user && user.emails && user.emails[0].address
+      if (email === "quanbinn@126.com") {
+      Meteor.call("insertFoods", name, brand, unit, calory, totalFat, saturatedFat, cholesterol, category, imageSource, resource, caloryPercentDV, totalFatPercentDV, saturatedFatPercentDV, cholesterolPercentDV, totalFatPercentDVQuotient, saturatedFatPercentDVQuotient, cholesterolPercentDVQuotient);     
+      };  
  
       // Clear form
       event.target.name.value = "";
