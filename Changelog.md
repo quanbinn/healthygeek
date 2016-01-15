@@ -1,4 +1,4 @@
-# Version 0.2.1 (2016-1-16)
+# Version 0.2.0 (2016-1-16)
 
 - Add the insert methods of Foods and call them in the client
 - Remove insecure and add methods for BMIinfos and call it from the client

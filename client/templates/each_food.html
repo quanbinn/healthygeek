@@ -1,0 +1,23 @@
+<template name="eachFood">
+	<h2>食品名称: {{name}}</h2>
+
+	<div><img src="{{imageSource}}"></div>
+	<a href="{{resource}}"><h3>数据及信息来源</h3></a>
+
+	<h2>品牌： {{brand}}</h2>
+	<h3>单位： {{unit}} 克</h3>
+	<p>能量： {{calory}} 卡路里</p>
+	<p>总脂肪： {{totalFat}} 克</p>
+	<p>饱和脂肪： {{saturatedFat}} 克</p>
+	<p>胆固醇： {{cholesterol}} 毫克</p>
+	<h3>分类： {{category}}</h3>
+
+	<h2>占卡路里每天需求总量的： {{caloryPercentDV}}%</h2>
+	<h2>占总脂肪每天需求总量的： {{totalFatPercentDV}}%</h2>
+	<h2>占饱和脂肪每天需求总量的： {{saturatedFatPercentDV}}%</h2>
+	<h2>占胆固醇每天需求总量的： {{cholesterolPercentDV}}%</h2>
+
+	<h2>总脂肪占比/卡路里占比： {{totalFatPercentDVQuotient}}</h2>
+	<h2>饱和脂肪占比/卡路里占比： {{saturatedFatPercentDVQuotient}}</h2>
+	<h2>胆固醇占比/卡路里占比： {{cholesterolPercentDVQuotient}}</h2>
+</template>
